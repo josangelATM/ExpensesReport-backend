@@ -1,7 +1,5 @@
 
 const Report = require('../models/Report')
-const mongoose = require('mongoose')
-const DateOnly = require('mongoose-dateonly')(mongoose);
 
 module.exports.add = async (req,res,next) =>{
     const report = new Report(req.body);
