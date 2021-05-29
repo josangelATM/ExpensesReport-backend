@@ -9,11 +9,11 @@ const User = require('./models/User')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const userRoutes = require('./routes/User')
-require('dotenv').config()
- 
+if (process.env.NODE_ENV === 'development') {
+    require('dotenv').config();
+}
 
 const dbPath = process.env.DB_CONNECTION || 'mongodb://localhost:27017/ExpensesReport'
-console.log(dbPath)
 const options = { useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -47,6 +47,6 @@ app.use((err, req, res, next) => {
 })
 
  
-const port = process.env.port || 3000
+const port = process.env.PORT || 3000
 
 app.listen(port)
