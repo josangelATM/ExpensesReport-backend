@@ -1,16 +1,15 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const passportLocalMongoose = require('passport-local-mongoose');
 const passport = require('passport')
 const LocalStrategy = require('passport-local');
 const reportRoutes = require('./routes/Report')
 const User = require('./models/User')
 const cors = require('cors')
-const bodyParser = require('body-parser')
 const userRoutes = require('./routes/User')
+
 if (process.env.NODE_ENV === 'development') {
-    require('dotenv').config();
+    require('dotenv').config(); 
 }
 
 const dbPath = process.env.DB_CONNECTION || 'mongodb://localhost:27017/ExpensesReport'

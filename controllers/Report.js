@@ -37,7 +37,6 @@ module.exports.getByID = async (req,res,next) =>{
 
 
 module.exports.search = async (req,res,next) =>{
-    console.log('here')
     const { query,field } = req.query;
     let querySearch = {}
     querySearch[field] = {'$regex': query,$options:'i'}
