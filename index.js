@@ -41,8 +41,12 @@ app.use('/reports',reportRoutes)
 
 
 app.use((err, req, res, next) => {
-  console.log(err)
-  res.status(400).send(err)
+    console.log(err)
+    let message = 'Ha ocurrido un error en el servidor, intentalo más tarde'
+    if(err.name == 'UserExistsError'){
+        message = 'El nombre de usuario ya existe'
+    }
+    res.status(400).send(message)
 })
 
  
